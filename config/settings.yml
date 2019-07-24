@@ -7,5 +7,5 @@ plugins:
   eauth_client_id:
     default: ""
   eauth_client_secret:
+    secret: true
     default: ""
-
