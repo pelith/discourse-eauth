@@ -26,7 +26,6 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
              strategy = env["omniauth.strategy"]
               strategy.options[:client_id] = SiteSetting.eauth_client_id
               strategy.options[:client_secret] = SiteSetting.eauth_client_secret
-              strategy.options[:scope] = 'email'
            }
   end
 
@@ -38,8 +37,8 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   end
 
   def after_authenticate(auth_token, existing_account: nil)
-    # Ignore extra data (we don't need it)
-    auth_token[:extra] = {}
+    extra = UserAssociatedAccount.find_by(provider_name: name, user_id: user.id)&.extra
+    auth_token[:extra] = extra
     super
   end
 end
