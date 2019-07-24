@@ -37,8 +37,7 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   end
 
   def after_authenticate(auth_token, existing_account: nil)
-    extra = UserAssociatedAccount.find_by(provider_name: name, user_id: user.id)&.extra
-    auth_token[:extra] = extra
+    # auth_token[:extra] = {}
     super
   end
 end
