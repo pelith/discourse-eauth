@@ -13,7 +13,7 @@ gem 'omniauth-eauth-oauth2', '1.0.0'
 class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
 
   def name
-    "eauthOauth2"
+    "eauthoauth2"
   end
 
   def enabled?
