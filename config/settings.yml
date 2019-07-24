@@ -4,6 +4,10 @@ plugins:
     default: false
   eauth_site:
     default: "https://eauth.pelith.com/"
+  eauth_authorize_url:
+    default: "/oauth/authorize"
+  eauth_token_url:
+    default: "/oauth/token"
   eauth_client_id:
     default: ""
   eauth_client_secret:
