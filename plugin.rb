@@ -4,7 +4,7 @@
 # author: Sirius Tsou
 # url: https://github.com/pelith/discourse-eauth
 
-enabled_site_setting :eauth_enabled
+enabled_site_setting :eauth_auth_enabled
 
 gem 'omniauth-eauth-oauth2', '1.0.0'
 
@@ -15,7 +15,7 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   end
 
   def enabled?
-    SiteSetting.eauth_enabled
+    SiteSetting.eauth_auth_enabled
   end
 
   def register_middleware(omniauth)
@@ -44,7 +44,7 @@ auth_provider frame_width: 920,
               frame_height: 800,
               authenticator: Auth::EauthAuthenticator.new
 
-register_svg_icon "fab fa-eauth" if respond_to?(:register_svg_icon)
+register_svg_icon "fab fa-ethereum" if respond_to?(:register_svg_icon)
 
 register_css <<CSS
 .btn-social.eauth {
