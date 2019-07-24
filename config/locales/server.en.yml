@@ -3,3 +3,5 @@
 en:
   site_settings:
     eauth_auth_enabled: "Enable Login via Eauth"
+    eauth_client_id: "Client ID for Eauth authentication"
+    eauth_client_secret: "Client Secret for Eauth authentication"

@@ -22,6 +22,8 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
     omniauth.provider :EauthOauth2,
            setup: lambda { |env|
              strategy = env["omniauth.strategy"]
+              strategy.options[:client_id] = SiteSetting.eauth_client_id
+              strategy.options[:client_secret] = SiteSetting.eauth_client_secret
               strategy.options[:scope] = 'email'
            }
   end
