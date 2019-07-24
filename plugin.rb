@@ -52,6 +52,6 @@ register_svg_icon "fab-ethereum" if respond_to?(:register_svg_icon)
 
 register_css <<CSS
 .btn-social.eauthoauth2 {
-  background: #FFF67F;
+  background: #c99d66;
 }
 CSS
