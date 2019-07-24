@@ -3,7 +3,7 @@
 en:
   js:
     login:
-      eauth:
+      eauthOauth2:
         name: "Eauth"
         title: "with Eauth"
         message: "Authenticating with Eauth(make sure pop up blockers are not enabled)"
