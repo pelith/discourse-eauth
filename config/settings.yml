@@ -1,0 +1,4 @@
+plugins:
+  eauth_enabled:
+    client: true
+    default: false
