@@ -11,7 +11,7 @@ gem 'omniauth-eauth-oauth2', '1.0.0'
 class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
 
   def name
-    "eauth"
+    "eauthOauth2"
   end
 
   def enabled?
@@ -47,7 +47,7 @@ auth_provider frame_width: 920,
 register_svg_icon "fab fa-ethereum" if respond_to?(:register_svg_icon)
 
 register_css <<CSS
-.btn-social.eauth {
+.btn-social.eauthoauth2 {
   background: #46698f;
 }
 CSS
