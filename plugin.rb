@@ -5,6 +5,8 @@
 # url: https://github.com/pelith/discourse-eauth
 
 enabled_site_setting :eauth_auth_enabled
+enabled_site_setting :eauth_client_id
+enabled_site_setting :eauth_client_secret
 
 gem 'omniauth-eauth-oauth2', '1.0.0'
 

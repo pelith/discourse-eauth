@@ -1,4 +1,8 @@
 plugins:
+  eauth_client_id:
+    default: ""
+  eauth_client_secret:
+    default: ""
   eauth_auth_enabled:
     client: true
     default: false
