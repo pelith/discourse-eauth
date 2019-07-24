@@ -39,22 +39,19 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   end
 
   def after_authenticate(auth_token, existing_account: nil)
-    result = Auth::Result.new
-    data = auth_token[:info]
-    result.username = data[:address]
-    result.name = data[:address]
-    result
+    super
   end
 end
 
 auth_provider frame_width: 920,
               frame_height: 800,
-              authenticator: Auth::EauthAuthenticator.new
+              authenticator: Auth::EauthAuthenticator.new,
+              icon: "fab-ethereum"
 
-register_svg_icon "fab fa-ethereum" if respond_to?(:register_svg_icon)
+register_svg_icon "fab-ethereum" if respond_to?(:register_svg_icon)
 
 register_css <<CSS
 .btn-social.eauthoauth2 {
-  background: #46698f;
+  background: #FFF67F;
 }
 CSS
