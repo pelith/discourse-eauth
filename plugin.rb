@@ -7,8 +7,9 @@
 enabled_site_setting :eauth_auth_enabled
 enabled_site_setting :eauth_client_id
 enabled_site_setting :eauth_client_secret
+enabled_site_setting :eauth_site
 
-gem 'omniauth-eauth-oauth2', '1.0.0'
+gem 'omniauth-eauth-oauth2', '1.0.1'
 
 class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
 
@@ -23,7 +24,8 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   def register_middleware(omniauth)
     omniauth.provider :EauthOauth2,
            setup: lambda { |env|
-             strategy = env["omniauth.strategy"]
+              strategy = env["omniauth.strategy"]
+              strategy.options[:client_options][:site] = SiteSetting.eauth_site
               strategy.options[:client_id] = SiteSetting.eauth_client_id
               strategy.options[:client_secret] = SiteSetting.eauth_client_secret
            }
@@ -33,12 +35,15 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
     info = UserAssociatedAccount.find_by(provider_name: name, user_id: user.id)&.info
     return "" if info.nil?
 
-    info["name"] || info["email"] || ""
+    info["address"] || ""
   end
 
   def after_authenticate(auth_token, existing_account: nil)
-    # auth_token[:extra] = {}
-    super
+    result = Auth::Result.new
+    data = auth_token[:info]
+    result.username = data[:address]
+    result.name = data[:address]
+    result
   end
 end
 
