@@ -73,6 +73,14 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
     result.email = info[:address]+'@ethmail.cc'
     result.name = ''
 
+    # check ens
+    ens = auth_token[:extra][:raw_info][:ens]
+    if ens
+      result.username = ens
+    else 
+      result.username = info[:address]
+    end
+
     result.extra_data = {
       provider: auth_token[:provider],
       uid: auth_token[:uid]
