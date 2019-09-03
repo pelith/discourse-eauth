@@ -4,7 +4,7 @@
 # author: Sirius Tsou
 # url: https://github.com/pelith/discourse-eauth
 
-enabled_site_setting :eauth_auth_enabled
+enabled_site_setting :eauth_enabled
 enabled_site_setting :eauth_site
 enabled_site_setting :eauth_authorize_url
 enabled_site_setting :eauth_token_url
@@ -20,7 +20,7 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   end
 
   def enabled?
-    SiteSetting.eauth_auth_enabled
+    SiteSetting.eauth_enabled
   end
 
   def register_middleware(omniauth)

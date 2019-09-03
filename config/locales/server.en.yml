@@ -2,7 +2,7 @@
 
 en:
   site_settings:
-    eauth_auth_enabled: "Enable Login via Eauth"
+    eauth_enabled: "Enable Login via Eauth"
     eauth_site: "site for Eauth authentication"
     eauth_authorize_url: "authorize_url for Eauth authentication"
     eauth_token_url: "token_url for Eauth authentication"

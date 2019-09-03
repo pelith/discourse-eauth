@@ -1,5 +1,5 @@
 plugins:
-  eauth_auth_enabled:
+  eauth_enabled:
     client: true
     default: false
   eauth_site:
