@@ -11,7 +11,7 @@ enabled_site_setting :eauth_token_url
 enabled_site_setting :eauth_client_id
 enabled_site_setting :eauth_client_secret
 
-gem 'omniauth-eauth-oauth2', '1.0.1'
+gem 'omniauth-eauth-oauth2', '1.0.1.ens'
 
 class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
 
@@ -44,7 +44,7 @@ class Auth::EauthAuthenticator < Auth::ManagedAuthenticator
   def description_for_auth_hash(auth_token)
     return if auth_token&.info.nil?
     info = auth_token.info
-    info["address"]
+    info["ens"] || info["address"]
   end
 
   def after_authenticate(auth_token, existing_account: nil)
