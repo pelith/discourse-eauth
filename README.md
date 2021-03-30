@@ -23,7 +23,19 @@ This plugin adds support for logging in to a Discourse site via Eauth.
 
 4. [Setup OAuth client](https://github.com/pelith/node-eauth-server#3-setup-oauth-clients), insert `client_id` and `client_secret` set in step 2 to `oauth_clients` table of [node-eauth-server](https://github.com/pelith/node-eauth-server) and use `http://your_discourse.domain/auth/eauthoauth2/callback` as your OAuth `redirect_uri`
 
-5. Finally, enjoy!
+5. Enable local logins
+
+6. Enable local username and password login based accounts. WARNING: if disabled, you may be unable to log in if you have not previously configured at least one alternate login method.
+
+7. Enable local logins via email
+
+8. Allow users to request a one-click login link to be sent to them via email.
+
+9. Enable signup cta
+
+10. Show a notice to returning anonymous users prompting them to sign up for an account.
+
+11. Finally, enjoy!
 
 ## Notes
 
